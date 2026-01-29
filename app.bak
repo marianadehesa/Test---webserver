@@ -1,0 +1,22 @@
+import http from "http";
+
+http.createServer((request, response)=>{
+          const persona={
+                    id: 1, 
+                    nombre: 'Mariana'
+          }
+          response.setHeader('Content-Disposition', 'attachment; filename="nombres.csv"')
+          response.writeHead(200, {'Content-type': 'application/csv'});
+          response.write('id, nombre\n');
+          response.write('1., Raul\n');
+          response.write('2., Jose\n');
+          response.write('3., Esteban\n');
+          response.write('4., Edmundo\n');
+          response.write('5., Ximena\n');
+          //console.log(response);
+
+          response.end();
+}).listen(8000);
+
+console.log("Estamos en el puerto 8000");
+
